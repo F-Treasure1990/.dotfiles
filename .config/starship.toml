@@ -1,0 +1,107 @@
+add_newline = false
+scan_timeout = 10
+format ='[ 󰣇 ](#B5E8E0 bold)$directory$git_branch$character'
+[character]
+vimcmd_symbol = '[](bold red)'
+vimcmd_visual_symbol = '[](bold yellow)'
+[aws]
+symbol = "  "
+
+[c]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+truncation_length = 1
+truncate_to_repo=true
+truncation_symbol = '../'
+
+[docker_context]
+symbol = " "
+
+[dotnet]
+format = 'via [$symbol(${major}${minor})](purple bold)'
+
+[git_branch]
+# symbol = " "
+
+[ git_status]
+disabled = true
+
+[golang]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nodejs]
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
+[package]
+symbol = "󰏗 "
+
+[python]
+symbol = " "
+
+[rust]
+symbol = " "
+

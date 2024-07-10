@@ -1,0 +1,9 @@
+[user]
+	email = fentontreasure@gmail.com
+	user = fenton
+[core]
+	editor = nvim
+[credential]
+	helper = libsecret
+[init]
+	defaultBranch = main
