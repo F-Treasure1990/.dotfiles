@@ -44,3 +44,4 @@ Then use GNU stow to install the dotfiles and create symlinks
 - zoxide
 - ttf-jetbrains-mono-nerd
 - starship
+- unzip
