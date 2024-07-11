@@ -28,4 +28,19 @@ Then use GNU stow to install the dotfiles and create symlinks
 
 [Dreams of Autonomy](https://www.youtube.com/watch?v=y6XCebnB9gs)
 
-## Notes
+## Arch
+
+#### packages
+
+- neovim
+- lazygit
+- tmux
+- firefox-developer-edition
+- git
+- stow
+- pnpm
+- npm
+- node
+- zoxide
+- ttf-jetbrains-mono-nerd
+- starship
