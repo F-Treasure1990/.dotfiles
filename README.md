@@ -27,3 +27,5 @@ Then use GNU stow to install the dotfiles and create symlinks
 ## Tutorials
 
 [Dreams of Autonomy](https://www.youtube.com/watch?v=y6XCebnB9gs)
+
+## Notes
