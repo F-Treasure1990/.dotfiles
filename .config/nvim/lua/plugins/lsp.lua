@@ -49,12 +49,12 @@ return {
 				-- python = { "isort", "black" },
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
-				yaml = { { "yamlfmt", "prettierd" } },
-				javascript = { { "prettierd" } },
-				typescript = { { "prettierd", "eslint" } },
-				typescriptreact = { { "prettierd", "eslint" } },
-				javascriptreact = { { "prettierd", "eslint" } },
-				markdown = { { "markdownlint" } },
+				yaml = { "yamlfmt", "prettierd", stop_after_first = true },
+				javascript = { "prettierd" },
+				typescript = { "prettierd", "eslint", stop_after_first = true },
+				typescriptreact = { "prettierd", "eslint", stop_after_first = true },
+				javascriptreact = { "prettierd", "eslint", stop_after_first = true },
+				markdown = { "markdownlint" },
 				prisma = { "prismals" },
 			},
 		},

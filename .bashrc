@@ -43,7 +43,7 @@ alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias open='xdg-open'
 alias nv='nvim'
-alias tm='tmux a'
+alias tm='tmux'
 
 ## File Movement
 alias ..='cd ..'
