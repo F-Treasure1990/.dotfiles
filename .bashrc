@@ -75,7 +75,9 @@ fi
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 PS1='[\u@\h \W]\$ '
-source /usr/share/nvm/init-nvm.sh
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Shopify Hydrogen alias to local projects
 alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
