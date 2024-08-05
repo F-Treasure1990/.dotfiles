@@ -6,7 +6,7 @@ return {
 		local wk = require("which-key")
 		wk.setup({
 			win = {
-				border = "single", -- shadow / single / double / none
+				border = "none", -- shadow / single / double / none
 			},
 			presets = {
 				operators = false,

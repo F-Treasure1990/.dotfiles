@@ -1,9 +1,56 @@
 return {
 	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			transparent = true,
+			on_highlights = function(hl, c)
+				local prompt = "#2d3149"
+				hl.TelescopeNormal = {
+					bg = c.bg_dark,
+					fg = c.fg_dark,
+				}
+				hl.TelescopeBorder = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+				hl.TelescopePromptNormal = {
+					bg = prompt,
+				}
+				hl.TelescopePromptBorder = {
+					bg = prompt,
+					fg = prompt,
+				}
+				hl.TelescopePromptTitle = {
+					bg = prompt,
+					fg = prompt,
+				}
+				hl.TelescopePreviewTitle = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+				hl.TelescopeResultsTitle = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+			end,
+			styles = {
+				comments = { italic = true },
+				floats = "dark",
+			},
+		},
+		config = function(_, opts)
+			require("tokyonight").setup(opts)
+			vim.cmd("colorscheme tokyonight")
+		end,
+	},
+	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
 		opts = {
+			transparent_background = true,
 			flavour = "frappe", -- latte, frappe, macchiato, mocha
 			color_overrides = {
 				all = {
@@ -50,8 +97,6 @@ return {
 		},
 		config = function(_, opts)
 			require("catppuccin").setup(opts)
-
-			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 }
