@@ -56,6 +56,7 @@ return {
 				javascriptreact = { "prettierd", "eslint", stop_after_first = true },
 				markdown = { "markdownlint" },
 				prisma = { "prismals" },
+				go = { "gofumpt", "goimports_reviser", "golines" },
 			},
 		},
 	},

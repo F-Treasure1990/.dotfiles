@@ -33,6 +33,18 @@ local lsp_servers = {
 		},
 		filetypes = { "yaml" },
 	},
+	gopls = {
+		cmd = { "gopls" },
+		filetypes = { "go", "gomod", "gowork", "gotmpl" },
+		root_dir = require("lspconfig").util.root_pattern("go.work", "go.mod", ".git"),
+		gopls = {
+			completeUnimported = true,
+			usePlaceholders = true,
+			analyses = {
+				unusedparams = true,
+			},
+		},
+	},
 	lua_ls = {
 		settings = {
 			Lua = {

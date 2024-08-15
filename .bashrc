@@ -44,6 +44,7 @@ alias grep="grep --color=auto"
 alias open='xdg-open'
 alias nv='nvim'
 alias tm='tmux'
+alias fzf='fzf --preview "bat --style=numbers --color=always {}"'
 
 ## File Movement
 alias ..='cd ..'
