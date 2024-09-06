@@ -1,5 +1,15 @@
 return {
-	{ "numToStr/Comment.nvim", event = "BufReadPost", opts = {} },
+	{
+		"numToStr/Comment.nvim",
+		event = "BufReadPost",
+		opts = {},
+		config = function()
+			local ft = require("Comment.ft")
+			require("Comment").setup()
+			ft.set("jsx", { "{/* %s */}" })
+			ft.set("tsx", { "{/* %s */}" })
+		end,
+	},
 
 	-- TODO: hello
 	-- WARN : This plugin is not maintained

@@ -17,11 +17,15 @@ return {
 
 			require("mason").setup()
 			require("mason-tool-installer").setup({ ensure_installed = servers.ensure_installed })
+			require("java").setup()
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
 						local server = servers.lsp_servers[server_name] or {}
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+						if server_name == "ts_ls" then
+							server_name = "ts_ls"
+						end
 						require("lspconfig")[server_name].setup(server)
 					end,
 				},

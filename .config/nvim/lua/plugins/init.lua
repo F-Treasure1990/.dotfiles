@@ -67,22 +67,4 @@ return {
 			})
 		end,
 	},
-	{
-		"https://github.com/razak17/tailwind-fold.nvim",
-		event = "BufReadPre",
-		keys = {
-			{ "<leader>lt", "<cmd>TailwindFoldToggle<cr>", desc = "undotree" },
-		},
-		opts = {},
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		ft = { "html", "svelte", "astro", "vue", "typescriptreact", "php", "blade", "tsx" },
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	},
 }

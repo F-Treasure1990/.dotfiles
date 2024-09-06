@@ -30,12 +30,6 @@ return {
 		},
 		indent = { enable = true, disable = { "ruby" } },
 		autopairs = { enable = true },
-		autotag = {
-			enable = true,
-			enable_rename = true,
-			enable_close = true,
-			enable_close_on_slash = true,
-		},
 	},
 	config = function(_, opts)
 		---@diagnostic disable-next-line: missing-fields

@@ -1,3 +1,9 @@
+local util = require("lspconfig.util")
+local function get_typescript_server_path(root_dir)
+	local project_root = util.find_node_modules_ancestor(root_dir)
+	return project_root and (util.path.join(project_root, "node_modules", "typescript", "lib")) or ""
+end
+
 local lsp_servers = {
 	jsonls = {
 		settings = {
@@ -15,6 +21,7 @@ local lsp_servers = {
 			},
 		},
 	},
+	jdtls = {},
 	yamlls = {
 		settings = {
 			yaml = {
