@@ -86,7 +86,7 @@ local lsp_servers = {
 		},
 		handlers = {},
 	},
-	tsserver = {
+	ts_ls = {
 		settings = {
 			typescript = {
 				inlayHints = {

@@ -23,9 +23,6 @@ return {
 					function(server_name)
 						local server = servers.lsp_servers[server_name] or {}
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						if server_name == "ts_ls" then
-							server_name = "ts_ls"
-						end
 						require("lspconfig")[server_name].setup(server)
 					end,
 				},
