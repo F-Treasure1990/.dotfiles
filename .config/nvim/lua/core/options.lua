@@ -22,7 +22,7 @@ _.showtabline = 2 -- show tabline at top _.cursorline = true     -- Enable highl
 _.signcolumn = "yes:1" -- number of spaces in sign column
 _.scrolloff = 8 -- number of lines to how beyond highlighted
 _.sidescrolloff = 8 -- number of words beyond screen length
-_.laststatus = 2 -- display setting of statusbar bottom
+_.laststatus = 3 -- display setting of statusbar bottom
 _.statusline = "  %f %m"
 _.breakindent = true -- enable break indent
 _.inccommand = "split" -- live editor below for word changes etc.

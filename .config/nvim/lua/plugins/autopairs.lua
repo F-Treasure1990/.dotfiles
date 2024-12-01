@@ -13,10 +13,13 @@ return {
 					javascript = { "string", "template_string" },
 				},
 				disable_in_visualblock = true,
-				disable_filetype = { "TelescopePrompt", "vim" },
+				disable_filetype = {
+					"TelescopePrompt",
+					"vim",
+				},
 				fast_wrap = {
 					map = "<M-e>",
-					chars = { "{", "[", "(", '"', "'" },
+					--	chars = { "{", "[", "(", '"', "'" },
 					pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
 					offset = 0,
 					end_key = "$",

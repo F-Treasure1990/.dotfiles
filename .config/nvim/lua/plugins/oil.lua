@@ -4,10 +4,24 @@ return {
 	keys = {
 		-- { "<leader>e", '<Cmd>:lua require("oil").toggle_float()<CR>', desc = "Open Oil" }
 		{ "-", "<Cmd>Oil<CR>", desc = "Open Oil" },
+		{
+			"_",
+			function()
+				return require("oil").open(vim.fn.getcwd())
+			end,
+			desc = "Open Oil",
+		},
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("oil").setup({
+			patterns = {
+				".git",
+				"package.json",
+				"tsconfig.json",
+				"tsconfig.tsconfig.json",
+			},
+			detection_methods = { "lsp", "pattern" },
 			default_file_explorer = true,
 			columns = {
 				"size",

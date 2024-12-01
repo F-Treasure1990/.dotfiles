@@ -38,7 +38,7 @@ return {
 	cmd = "Telescope",
 	lazy = true,
 	keys = {
-		{ "<leader><leader>", "<cmd>Telescope find_files  <cr>", desc = "File Search" },
+		{ "<leader><leader>", "<cmd>Telescope find_files hidden=true  <cr>", desc = "File Search" },
 		{ "<leader>/", "<cmd>Telescope live_grep <cr>", desc = "File Grep" },
 		{ "<leader>fr", "<cmd>Telescope oldfiles <cr>", desc = "File Recents" },
 		{ "<leader>ss", "<cmd>Telescope spell_suggest<cr>", desc = "Spell Suggest" },
@@ -94,13 +94,6 @@ return {
 						end,
 						["<C-k>"] = function(...)
 							return actions.preview_scrolling_up(...)
-						end,
-						["<C-h>"] = function()
-							TELESCOPE_HIDDEN_FILES = not TELESCOPE_HIDDEN_FILES
-							return require("telescope.builtin").find_files({
-								hidden = TELESCOPE_HIDDEN_FILES,
-								no_ignore = true,
-							})
 						end,
 					},
 				},

@@ -4,9 +4,10 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		keys = {
 			-- pick a buffer to view from the buffer list
-			{ "<leader>bp", "<cmd>BufferLinePick<CR>", desc = "Buffer Pick" },
+			--{ "<leader>bp", "<cmd>BufferLinePick<CR>", desc = "Buffer Pick" },
+			{ "<Tab>", "<cmd>BufferLinePick<CR>", desc = "Buffer Pick" },
 			-- pick a buffer to closes from the buffer list
-			{ "<leader>bs", "<cmd>BufferLinePickClose<CR>", desc = "Buffer Pick Close" },
+			{ "<leader>bp", "<cmd>BufferLinePickClose<CR>", desc = "Buffer Pick Close" },
 			{ "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", desc = "Buffer Close Left" },
 			{ "<leader>bl", "<cmd>BufferLineCloseRight<CR>", desc = "Buffer Close Right" },
 			{ "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", desc = "Buffer Close Others" },

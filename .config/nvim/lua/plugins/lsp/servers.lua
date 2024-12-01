@@ -83,35 +83,19 @@ local lsp_servers = {
 		settings = {
 			run = "onType", -- or "onSave"
 			workingDirectory = { mode = "auto" },
+			tsserver_file_preferences = {
+				includeInlayParameterNameHints = "all",
+				includeCompletionsForModuleExports = true,
+				quotePreference = "auto",
+			},
+			tsserver_format_options = {
+				allowIncompleteCompletions = false,
+				allowRenameOfImportPath = false,
+			},
 		},
 		handlers = {},
 	},
-	ts_ls = {
-		settings = {
-			typescript = {
-				inlayHints = {
-					includeInlayParameterNameHints = "literal",
-					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-					includeInlayFunctionParameterTypeHints = true,
-					includeInlayVariableTypeHints = false,
-					includeInlayPropertyDeclarationTypeHints = true,
-					includeInlayFunctionLikeReturnTypeHints = true,
-					includeInlayEnumMemberValueHints = true,
-				},
-			},
-			javascript = {
-				inlayHints = {
-					includeInlayEnumMemberValueHints = "all",
-					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-					includeInlayFunctionLikeReturnTypeHints = true,
-					includeInlayFunctionParameterTypeHints = true,
-					includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-					includeInlayPropertyDeclarationTypeHints = true,
-					includeInlayVariableTypeHints = true,
-				},
-			},
-		},
-	},
+	ts_ls = {},
 	tailwindcss = {},
 	vimls = {},
 	html = {},

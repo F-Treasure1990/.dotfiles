@@ -50,17 +50,27 @@ function M.on_very_lazy(fn)
 	})
 end
 
-function M.cmp_formt(_, item)
+function M.cmp_formt(entry, item)
 	local ELLIPSIS_CHAR = "…"
-	local MAX_LABEL_WIDTH = 24
+	local MAX_LABEL_WIDTH = 28
 	local MAX_KIND_WIDTH = 14
 	local icons = require("core.icons").kind
+	--local source = entry.source.name
 
 	local get_ws = function(max, len)
 		return (" "):rep(max - len)
 	end
 	local content = item.abbr
 	--	item.kind = icons[item.kind] .. " " .. item.kind
+
+	item.dup = {
+		buffer = 0,
+		path = 0,
+		nvim_lsp = 0,
+		nvim_lua = 0,
+		luasnip = 0,
+		treesitter = 0,
+	}
 
 	if #content > MAX_LABEL_WIDTH then
 		item.abbr = vim.fn.strcharpart(content, 0, MAX_LABEL_WIDTH) .. ELLIPSIS_CHAR

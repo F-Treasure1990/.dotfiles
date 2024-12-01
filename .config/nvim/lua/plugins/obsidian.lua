@@ -16,10 +16,12 @@ return {
 		disable_frontmatter = false,
 		preferred_link_style = "markdown",
 		note_frontmatter_func = function(note)
+			print(note.title)
+
 			local out = { --[[ aliases = note.aliases, ]]
+				title = "",
+				description = "",
 				tags = note.tags,
-				date = os.date("%Y-%m-%d"),
-				time = os.date("%H:%M:%S"),
 			}
 			if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
 				for k, v in pairs(note.metadata) do
@@ -31,7 +33,6 @@ return {
 		templates = {
 			subdir = ".templates",
 			date_format = "%Y-%m-%d-%a",
-			time_format = "%H:%M",
 		},
 		mappings = {
 			-- toggle check-boxes

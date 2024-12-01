@@ -11,7 +11,7 @@ map("n", "<leader>qp", vim.cmd.cprev, { desc = "quickfix next", silent = true })
 -- ==========================================================================
 -- Buffers
 -- ==========================================================================
-map("n", "<Tab>", "<C-6>", { desc = "Buffer Prev" })
+map("n", "<S-Tab>", "<C-6>", { desc = "Buffer Prev" })
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" }) -- new file
 
 --[[

@@ -43,11 +43,12 @@ return {
 			end,
 		},
 	},
-
 	config = function()
 		local cmp = require("cmp")
 		local utils = require("core.utils")
 		local luasnip = require("luasnip")
+		vim.api.nvim_set_hl(0, "CustomCmpMenu", { bg = "NONE" }) -- highlights cmp menu and text
+		vim.api.nvim_set_hl(0, "CustomCmpDocumentation", { bg = "NONE" }) -- highlights cmp menu and text
 
 		cmp.setup({
 			formatting = {
@@ -67,20 +68,43 @@ return {
 				-- completion = cmp.config.window.bordered(),
 				-- documentation = cmp.config.window.bordered(),
 				documentation = {
-					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-					-- border = { " ", " ", " ", " ", " ", " ", " ", " " },
-					--winhighlight = "Normal:CmpMenu,FloatBorder:CmpMenuBorder,CursorLine:CmpMenuSelect,Search:None",
+					winhighlight = "Normal:CustomCmpDocumentation",
+					border = {
+						{ "󰙎", "DiagnosticInfo" },
+						{ "─", "CursorLineSign" },
+						{ "╮", "CursorLineSign" },
+						{ "│", "CursorLineSign" },
+						{ "╯", "CursorLineSign" },
+						{ "─", "CursorLineSign" },
+						{ "╰", "CursorLineSign" },
+						{ "│", "CursorLineSign" },
+					},
+					scrollbar = false,
+					winblend = 0,
 				},
 				completion = {
-					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-					-- border = { " ", " ", " ", " ", " ", " ", " ", " " },
-					--winhighlight = "Normal:CmpMenu,FloatBorder:CmpMenuBorder,CursorLine:CmpMenuSelect,Search:None",
+					winhighlight = "Normal:CustomCmpMenu,CursorLine:CursorLine",
+					border = {
+						{ "󱐋", "DiagnosticWarn" },
+						{ "─", "CursorLineSign" },
+						{ "╮", "CursorLineSign" },
+						{ "│", "CursorLineSign" },
+						{ "╯", "CursorLineSign" },
+						{ "─", "CursorLineSign" },
+						{ "╰", "CursorLineSign" },
+						{ "│", "CursorLineSign" },
+					},
+					scrollbar = false,
+					winblend = 0,
+					--col_offset = -10,
+					--side_padding = 3,
 				},
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-k>"] = cmp.mapping.scroll_docs(-4),
 				["<C-j>"] = cmp.mapping.scroll_docs(4),
 				["<C-e>"] = cmp.mapping.abort(),
+				["<C-n"] = cmp.mapping.complete(),
 				["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
@@ -104,7 +128,6 @@ return {
 				end, { "i" }),
 			}),
 			sources = cmp.config.sources({
-
 				{ name = "nvim_lsp", max_item_count = 12 },
 				{
 					name = "luasnip",
@@ -132,7 +155,6 @@ return {
 				},
 			}),
 		})
-
 		cmp.setup.filetype({ "sql" }, {
 			sources = {
 				{ name = "vim-dadbod-completion" },

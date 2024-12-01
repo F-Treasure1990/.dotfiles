@@ -11,18 +11,26 @@ return {
 			{ "folke/neodev.nvim", ft = "lua", opts = {}, lazy = true },
 		},
 		config = function()
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+			local capabilities = vim.tbl_deep_extend(
+				"force",
+				vim.lsp.protocol.make_client_capabilities(),
+				require("cmp_nvim_lsp").default_capabilities()
+			)
+
 			local servers = require("plugins.lsp.servers")
 
+			-- Setup Mason and related plugins
 			require("mason").setup()
 			require("mason-tool-installer").setup({ ensure_installed = servers.ensure_installed })
-			require("java").setup()
+
+			-- Setup Mason-LSPconfig with custom handlers
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
-						local server = servers.lsp_servers[server_name] or {}
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+						local server = vim.tbl_deep_extend("force", {
+							capabilities = capabilities,
+						}, servers.lsp_servers[server_name] or {})
+
 						require("lspconfig")[server_name].setup(server)
 					end,
 				},
@@ -40,8 +48,8 @@ return {
 				-- languages here or re-enable it for the disabled ones.
 				local disable_filetypes = { c = true, cpp = true }
 				return {
-					timeout_ms = 500,
-					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+					timeout_ms = 2000,
+					lsp_fallback = true,
 				}
 			end,
 			formatters_by_ft = {
@@ -51,10 +59,10 @@ return {
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
 				yaml = { "yamlfmt", "prettierd", stop_after_first = true },
-				javascript = { "prettierd" },
-				typescript = { "prettierd", "eslint", stop_after_first = true },
-				typescriptreact = { "prettierd", "eslint", stop_after_first = true },
-				javascriptreact = { "prettierd", "eslint", stop_after_first = true },
+				javascript = { "prettierd", "eslint_d" },
+				typescript = { "prettierd", "eslint_d" },
+				typescriptreact = { "prettierd", "eslint_d" },
+				javascriptreact = { "prettierd", "eslint_d" },
 				markdown = { "markdownlint" },
 				prisma = { "prismals" },
 				go = { "gofumpt", "goimports_reviser", "golines" },

@@ -70,3 +70,12 @@ map("n", "dp", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic m
 map("n", "dn", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 map("n", "dl", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 map("n", "dq", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+
+local hl = vim.api.nvim_set_hl
+--@param link string
+local function ghl(link)
+	local link_opts = vim.api.nvim_get_hl(0, { name = link, link = false })
+	return link_opts
+end
+
+hl(0, "FloatBorder", { fg = ghl("TelescopeBorder").fg, bg = ghl("TelescopeBorder").fg })
