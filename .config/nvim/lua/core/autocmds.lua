@@ -32,7 +32,7 @@ autocmd("FileType", {
 -- highlight yank
 autocmd("TextYankPost", {
   group = augroup("HighlightYank"),
-  pattern = "*",
+  desc = "Highlight text on yank",
   callback = function()
     vim.highlight.on_yank({
       -- higroup = "IncSearch", -- IncSearch
@@ -92,6 +92,10 @@ utils.on_attach(function(client, bufnr)
       buffer = bufnr,
       callback = function()
         vim.lsp.buf.format({ bufnr = bufnr, id = client.id })
+        local eslint_filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" }
+        if vim.tbl_contains(eslint_filetypes, vim.bo.filetype) then
+          vim.cmd("EslintFixAll")
+        end
       end,
     })
   end
@@ -103,9 +107,42 @@ utils.on_attach(function(client, bufnr)
   map("n", "gr", require("telescope.builtin").lsp_references, opts, "Go References")
   map("n", "K", vim.lsp.buf.hover, opts, "Hover Docs")
   map("n", "gI", require("telescope.builtin").lsp_implementations, opts, "Go Implementations")
-  map("n", "<leader>lr", vim.lsp.buf.rename, opts, "Rename")
+  map({ "n", "v" }, "<leader>lr", vim.lsp.buf.rename, opts, "Rename")
   map("n", "<leader>la", vim.lsp.buf.code_action, opts, "Code Action")
   map("n", "<leader>lo", "<cmd>TSToolsOrganizeImports<cr>", opts, "Organize/Remove Imports")
   map("n", "<leader>li", "<cmd>TSToolsAddMissingImports<cr>", opts, "Missing Imports")
   map("n", "<leader>le", "<cmd>EslintFixAll<cr>", opts, "Eslint Fix All")
 end)
+
+-- ==========================================================================
+-- Right Click Context Menu
+-- ==========================================================================
+
+vim.cmd [[
+aunmenu PopUp
+anoremenu PopUp.Inspect <cmd>Inspect<CR>
+amenu PopUp.-1- <NOP>
+anoremenu PopUp.Definition <cmd>lua vim.lsp.buf.definition()<CR>
+anoremenu PopUp.References <cmd>Telescope lsp_references<CR>
+]]
+
+local group = vim.api.nvim_create_augroup("nvim_popupmenu", { clear = true })
+
+vim.api.nvim_create_autocmd("MenuPopUp", {
+  pattern = "*",
+  group = group,
+  desc = "Custom PopUp Config",
+  callback = function()
+    vim.cmd [[
+      amenu disable PopUp.Definition
+      amenu disable PopUp.References
+    ]]
+
+    if vim.lsp.get_clients({ bufnr = 0 })[1] then
+      vim.cmd [[
+      amenu enable PopUp.Definition
+      amenu enable PopUp.References
+    ]]
+    end
+  end
+})

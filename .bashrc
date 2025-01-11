@@ -46,6 +46,8 @@ alias nv='nvim'
 alias tm='tmux'
 alias fzf='fzf --preview "bat --style=numbers --color=always {}"'
 
+alias cj='NVIM_APPNAME=cj nvim'
+
 ## File Movement
 alias ..='cd ..'
 alias ...='cd ../../../'

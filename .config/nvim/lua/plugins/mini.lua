@@ -1,55 +1,69 @@
 return {
-	"echasnovski/mini.nvim",
-	event = { "BufReadPre", "BufNewFile" },
-	init = function()
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = {
-				"oil",
-				"help",
-				"alpha",
-				"dashboard",
-				"nvim-tree",
-				"Trouble",
-				"lazy",
-				"mason",
-				"telescope",
-				"lazyterm",
-				"notify",
-			},
-			callback = function()
-				---@diagnostic disable-next-line: inject-field
-				vim.b.miniindentscope_disable = true
-			end,
-		})
-	end,
-	config = function()
-		require("mini.surround").setup({
-			-- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
-			highlight_duration = 200,
+  {
+    "echasnovski/mini.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "oil",
+          "help",
+          "alpha",
+          "dashboard",
+          "nvim-tree",
+          "Trouble",
+          "lazy",
+          "mason",
+          "telescope",
+          "lazyterm",
+          "notify",
+        },
+        callback = function()
+          ---@diagnostic disable-next-line: inject-field
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
+    config = function()
+      require("mini.surround").setup({
+        -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
+        highlight_duration = 200,
 
-			-- Module mappings. Use `''` (empty string) to disable one.
-			mappings = {
-				add = "sa", -- Add surrounding in Normal and Visual modes
-				delete = "sd", -- Delete surrounding
-				find = "sf", -- Find surrounding (to the right)
-				find_left = "sF", -- Find surrounding (to the left)
-				highlight = "sh", -- Highlight surrounding
-				replace = "sc", -- Replace surrounding
-				update_n_lines = "sn", -- Update `n_lines`
+        -- Module mappings. Use `''` (empty string) to disable one.
+        mappings = {
+          add = "sa",      -- Add surrounding in Normal and Visual modes
+          delete = "sd",   -- Delete surrounding
+          find = "sf",     -- Find surrounding (to the right)
+          find_left = "sF", -- Find surrounding (to the left)
+          highlight = "sh", -- Highlight surrounding
+          replace = "sc",  -- Replace surrounding
+          update_n_lines = "sn", -- Update `n_lines`
 
-				suffix_last = "l", -- Suffix to search with "prev" method
-				suffix_next = "n", -- Suffix to search with "next" method
-			},
-		})
-		require("mini.cursorword").setup({
-			delay = 100,
-		})
-		require("mini.indentscope").setup({
-			-- symbol = "▏"┆╎,
-			symbol = "▏",
-			options = {
-				try_as_border = true,
-			},
-		})
-	end,
+          suffix_last = "l", -- Suffix to search with "prev" method
+          suffix_next = "n", -- Suffix to search with "next" method
+        },
+      })
+      require("mini.cursorword").setup({
+        delay = 100,
+      })
+      require("mini.indentscope").setup({
+        -- symbol = "▏"┆╎,
+        symbol = "▏",
+        options = {
+          try_as_border = true,
+        },
+      })
+    end,
+  },
+  {
+    'echasnovski/mini.nvim',
+    enabled = true,
+    version = '*',
+    opts = {
+      use_icons = true,
+    },
+    config = function(_, opts)
+      local statusline = require 'mini.statusline'
+      statusline.setup(opts)
+    end
+  }
 }
