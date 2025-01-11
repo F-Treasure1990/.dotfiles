@@ -1,10 +1,11 @@
 add_newline = false
 scan_timeout = 10
-format ='[ 󰣇 ](#B5E8E0 bold)$hostname$directory$git_branch$character'
+format =' $hostname$directory$git_branch$character'
 
 [character]
 vimcmd_symbol = '[](bold red)'
 vimcmd_visual_symbol = '[](bold yellow)'
+
 [aws]
 symbol = "  "
 
@@ -15,7 +16,7 @@ symbol = " "
 read_only = " 󰌾"
 truncation_length = 1
 truncate_to_repo=true
-truncation_symbol = '../'
+truncation_symbol = ''
 
 [docker_context]
 symbol = " "
