@@ -1,6 +1,7 @@
 add_newline = false
 scan_timeout = 10
-format ='[ 󰣇 ](#B5E8E0 bold)$directory$git_branch$character'
+format ='[ 󰣇 ](#B5E8E0 bold)$hostname$directory$git_branch$character'
+
 [character]
 vimcmd_symbol = '[](bold red)'
 vimcmd_visual_symbol = '[](bold yellow)'
@@ -36,6 +37,7 @@ symbol = " "
 
 [hostname]
 ssh_symbol = " "
+ssh_only = true
 
 [java]
 symbol = " "
