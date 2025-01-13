@@ -1,6 +1,7 @@
 [user]
 	email = fentontreasure@gmail.com
 	user = fenton
+	name = Fenton
 [core]
 	editor = nvim
 [credential]
