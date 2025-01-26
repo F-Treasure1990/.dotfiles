@@ -22,9 +22,9 @@ local lsp_servers = {
     },
   },
   jdtls = {},
-  deno = {
-    root_dir = require('lspconfig').util.root_pattern("deno.json", "deno.jsonc")
-  },
+  -- deno = {
+  --   root_dir = require('lspconfig').util.root_pattern("deno.json", "deno.jsonc")
+  -- },
   yamlls = {
     settings = {
       yaml = {

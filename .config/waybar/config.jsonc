@@ -422,7 +422,6 @@
     "format-linked": "󰈀 {ifname} (No IP)",
     "format-disconnected": " ",
     "tooltip-format-disconnected": "Disconnected",
-    "on-click": "/usr/local/bin/ags -t ControlPanel",
     "interval": 2,
     "on-click": "nmtui"
   },
