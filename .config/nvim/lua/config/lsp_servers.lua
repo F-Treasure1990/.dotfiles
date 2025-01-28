@@ -5,7 +5,8 @@ M.lua_ls = {
   settings = {
     Lua = {
       completion = {
-        callSnippet = 'Replace',
+        --callSnippet = 'Replace',
+        --keywordSnippet = 'Replace',
       },
       runtime = {
         version = 'LuaJIT',

@@ -6,6 +6,7 @@ vim.g.editorconfig = true
 
 set.cursorline = true
 
+set.conceallevel = 1
 set.number = true
 set.numberwidth = 2
 set.relativenumber = true

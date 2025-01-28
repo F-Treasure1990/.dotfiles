@@ -1,21 +1,21 @@
 return {
   {
-    "echasnovski/mini.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    'echasnovski/mini.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
     init = function()
-      vim.api.nvim_create_autocmd("FileType", {
+      vim.api.nvim_create_autocmd('FileType', {
         pattern = {
-          "oil",
-          "help",
-          "alpha",
-          "dashboard",
-          "nvim-tree",
-          "Trouble",
-          "lazy",
-          "mason",
-          "telescope",
-          "lazyterm",
-          "notify",
+          'oil',
+          'help',
+          'alpha',
+          'dashboard',
+          'nvim-tree',
+          'Trouble',
+          'lazy',
+          'mason',
+          'telescope',
+          'lazyterm',
+          'notify',
         },
         callback = function()
           ---@diagnostic disable-next-line: inject-field
@@ -24,32 +24,32 @@ return {
       })
     end,
     config = function()
-      require("mini.surround").setup({
+      require('mini.surround').setup({
         -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
         highlight_duration = 200,
 
         -- Module mappings. Use `''` (empty string) to disable one.
         mappings = {
-          add = "sa",            -- Add surrounding in Normal and Visual modes
-          delete = "sd",         -- Delete surrounding
-          find = "sf",           -- Find surrounding (to the right)
-          find_left = "sF",      -- Find surrounding (to the left)
-          highlight = "sh",      -- Highlight surrounding
-          replace = "sc",        -- Replace surrounding
-          update_n_lines = "sn", -- Update `n_lines`
+          add = 'sa', -- Add surrounding in Normal and Visual modes
+          delete = 'sd', -- Delete surrounding
+          find = 'sf', -- Find surrounding (to the right)
+          find_left = 'sF', -- Find surrounding (to the left)
+          highlight = 'sh', -- Highlight surrounding
+          replace = 'sc', -- Replace surrounding
+          update_n_lines = 'sn', -- Update `n_lines`
 
-          suffix_last = "l",     -- Suffix to search with "prev" method
-          suffix_next = "n",     -- Suffix to search with "next" method
+          suffix_last = 'l', -- Suffix to search with "prev" method
+          suffix_next = 'n', -- Suffix to search with "next" method
         },
       })
 
-      require("mini.cursorword").setup({
+      require('mini.cursorword').setup({
         delay = 100,
       })
 
-      require("mini.indentscope").setup({
+      require('mini.indentscope').setup({
         -- symbol = "▏"┆╎,
-        symbol = "▏",
+        symbol = '▏',
         options = {
           try_as_border = true,
         },
