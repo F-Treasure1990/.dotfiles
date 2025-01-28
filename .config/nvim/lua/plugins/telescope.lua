@@ -1,156 +1,106 @@
 return {
-  "nvim-telescope/telescope.nvim",
+  'nvim-telescope/telescope.nvim',
   dependencies = {
+    'nvim-lua/plenary.nvim',
+    'nvim-tree/nvim-web-devicons',
     {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      cond = function()
-        return vim.fn.executable("make") == 1
-      end,
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'make',
     },
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-ui-select.nvim",
-    {
-      "nvim-tree/nvim-web-devicons",
-      config = function()
-        require("nvim-web-devicons").setup({
-          override = {
-            ts = {
-              icon = "󰛦",
-              color = "#89B4FA",
-              name = "TypeScript",
-            },
-            tsx = {
-              icon = "",
-              color = "#89B4FA",
-              name = "TypeScript",
-            },
-            toml = {
-              icon = "",
-              name = "toml",
-            },
-          },
-        })
-      end,
-    },
-  },
-  brance = "0.1.x",
-  cmd = "Telescope",
-  lazy = true,
-  keys = {
-    { "<leader><leader>", "<cmd>Telescope find_files hidden=true  <cr>", desc = "File Search" },
-    { "<leader>/",        "<cmd>Telescope live_grep <cr>",               desc = "File Grep" },
-    { "<leader>fr",       "<cmd>Telescope oldfiles <cr>",                desc = "File Recents" },
-    { "<leader>ss",       "<cmd>Telescope spell_suggest<cr>",            desc = "Spell Suggest" },
-    { "<leader>vt",       "<cmd>Telescope help_tags<cr>",                desc = "Help Tags" },
-    { "<leader>y",        "<cmd>Telescope registers<cr>",                desc = "Yank Registers", mode = { "n", "v" } },
-    { "<leader>t",        "<cmd>TodoTelescope <cr>",                     desc = "Todo's" },
-    {
-      "<leader>g",
-      function()
-        local opts = require('telescope.themes').get_ivy({
-          cwd = vim.fn.stdpath('config'),
-        })
-        require('telescope.builtin').find_files(opts)
-      end,
-      desc = "Grep Vim"
-    },
-    {
-      "<leader>G",
-      function()
-        require('telescope.builtin').find_files {
-          cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
-        }
-      end,
-      desc = "Search Plugin Files"
-    }
   },
   config = function()
-    local telescope = require("telescope")
-    local actions = require("telescope.actions")
-    local actions_layout = require("telescope.actions.layout")
+    local actions = require('telescope.actions')
+    local actions_layout = require('telescope.actions.layout')
+    local tsb = require('telescope.builtin')
+    local ts = require('telescope')
 
-    telescope.setup({
-      defaults = {
-        file_ignore_patterns = { ".git/", "node_modules/", ".DS_Store", ".obsidian/" },
-        selection_caret = " ",
-        prompt_prefix = " 󰀘  ",
-        layout_strategy = "flex",
-        previewer = {
-          width = 0.8,
-        },
-        layout_config = {
-          width = 0.8,
-          height = 0.5,
-        },
-        sorting_strategy = "ascending",
-        vimgrep_arguments = {
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--trim", -- add this value
-        },
-        path_display = function(_, path)
-          local tail = require("telescope.utils").path_tail(path)
-          local find_file_in_path = vim.fs.dirname(path)
-          if find_file_in_path == "." then
-            return string.format("%s", tail)
-          end
-          return string.format(" %s ..[ %s ]", tail, find_file_in_path)
-        end,
-        mappings = {
-          i = {
-            ["<esc>"] = require("telescope.actions").close,
-            ["<C-p>"] = actions_layout.toggle_preview,
-            ["<C-j>"] = function(...)
-              return actions.preview_scrolling_down(...)
-            end,
-            ["<C-k>"] = function(...)
-              return actions.preview_scrolling_up(...)
-            end,
-          },
-        },
-      },
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown({
-            initial_mode = "normal",
-            layout_config = {
-              --height = 0.2,
-            },
-          }),
-        },
-      },
+    require('telescope').setup {
       pickers = {
         spell_suggest = {
-          theme = "dropdown",
-          layout_strategy = "center",
-          initial_mode = "normal",
+          theme = 'dropdown',
+          layout_strategy = 'center',
+          initial_mode = 'normal',
           previewer = false,
-          prompt_prefix = " ",
+          prompt_prefix = ' ',
           layout_config = {
-            prompt_position = "top",
+            prompt_position = 'top',
             height = 0.3,
             width = 0.5,
           },
         },
         grep_string = {
-          theme = "ivy",
-          layout_strategy = "flex",
+          theme = 'ivy',
+          layout_strategy = 'flex',
           previewer = true,
-          initial_mode = "normal",
+          initial_mode = 'normal',
           border = {},
-          borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+          borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
         },
       },
-    })
+      defaults = {
+        layout_strategy = 'flex',
+        layout_config = {
+          horizontal = {
+            width = 0.8,
+            height = 0.5,
+          },
+        },
+        preview = {
+          filesize_limit = 0.1, -- MB
+        },
+        file_ignore_patterns = { '.git/', 'node_modules/', '.DS_Store', '.obsidian/' },
+        selection_caret = ' ',
+        prompt_prefix = ' 󰀘  ',
+        sorting_strategy = 'ascending', -- flex
+        vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
+          '--trim', -- add this value
+        },
+        path_display = function(_, path)
+          local tail = require('telescope.utils').path_tail(path)
+          local find_file_in_path = vim.fs.dirname(path)
+          if find_file_in_path == '.' then
+            return string.format('%s', tail)
+          end
+          return string.format(' %s ..[ %s ]', tail, find_file_in_path)
+        end,
+        mappings = {
+          i = {
+            ['<esc>'] = require('telescope.actions').close,
+            ['<C-p>'] = actions_layout.toggle_preview,
+            ['<C-j>'] = function(...)
+              return actions.preview_scrolling_down(...)
+            end,
+            ['<C-k>'] = function(...)
+              return actions.preview_scrolling_up(...)
+            end,
+          },
+        },
+      },
+    }
 
-    -- Enable Telescope extensions if they are installed
-    pcall(require("telescope").load_extension, "fzf")
-    pcall(require("telescope").load_extension, "ui-select")
+    -- Keymaps
+    local set = vim.keymap.set
+    set('n', '<space><space>', '<cmd>Telescope find_files hidden=true<cr>', { desc = 'Find Files' })
+    set('n', '<space>fr', tsb.oldfiles, { desc = 'Recent' })
+    set('n', '<space>/', require('config.utils').live_multigrep, { desc = 'Grep' })
+    set('n', '<space>fh', tsb.help_tags, { desc = 'Help Tags' })
+    set('n', '<space>ss', tsb.spell_suggest, { desc = 'Spell Suggest' })
+    set('n', '<space>t', '<cmd>TodoTelescope <cr>', { desc = "Todo's" })
+
+    set('n', '<space>n', function()
+      local opts = require('telescope.themes').get_ivy({
+        cwd = vim.fn.stdpath('config'),
+      })
+      require('telescope.builtin').find_files(opts)
+    end, { desc = 'Find Neovim Config' })
+
+    ts.load_extension('fzf')
   end,
 }

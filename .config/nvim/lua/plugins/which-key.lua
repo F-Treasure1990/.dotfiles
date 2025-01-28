@@ -1,21 +1,17 @@
 return {
-	-- Useful plugin to show you pending keybinds.
 	"folke/which-key.nvim",
-	event = "VimEnter", -- Sets the loading event to 'VimEnter'
-	config = function() -- This is the function that runs, AFTER loading
-		local wk = require("which-key")
-		wk.setup({
-			win = {
-				border = "none", -- shadow / single / double / none
-			},
-			presets = {
-				operators = false,
-				motions = false,
-				nav = false,
-				z = false,
-				g = false,
-			},
-		})
+	event = "VeryLazy",
+	keys = {
+		{
+			"<leader>?",
+			function()
+				require("which-key").show({ global = false })
+			end,
+			desc = "Buffer Local Keymaps (which-key)",
+		},
+	},
+	config = function()
+		local wk = require("which-key");
 
 		wk.add({
 			{ "<leader>b", desc = "Buffers" },
@@ -32,5 +28,5 @@ return {
 			{ "<leader>w", desc = "Workspace" },
 			{ "<leader>y", desc = "Yank Regs" },
 		})
-	end,
+	end
 }
