@@ -1,41 +1,42 @@
 return {
   {
-    "christoomey/vim-tmux-navigator",
+    'christoomey/vim-tmux-navigator',
     lazy = true,
     event = function()
-      if vim.fn.exists("$TMUX") == 1 then
-        return "VeryLazy"
+      if vim.fn.exists('$TMUX') == 1 then
+        return 'VeryLazy'
       end
     end,
   },
   {
-    "mbbill/undotree",
+    'mbbill/undotree',
+    enabled = false,
     keys = {
-      { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "undotree" },
+      { '<leader>u', '<cmd>UndotreeToggle<cr>', desc = 'undotree' },
     },
   },
   {
-    "NvChad/nvim-colorizer.lua",
-    event = "BufReadPre",
+    'NvChad/nvim-colorizer.lua',
+    event = 'BufReadPre',
     config = function()
-      require("colorizer").setup({
+      require('colorizer').setup({
         filetypes = {
-          "css",
-          "scss",
-          "sass",
-          "lua",
-          "javascript",
-          "typescript",
-          "typescriptreact",
-          "javascriptreact",
-          "html",
+          'css',
+          'scss',
+          'sass',
+          'lua',
+          'javascript',
+          'typescript',
+          'typescriptreact',
+          'javascriptreact',
+          'html',
         },
         user_default_options = {
           css = true,
           names = true,
-          mode = "virtualtext",
+          mode = 'virtualtext',
           tailwind = true,
-          virtualtext = "■", -- 
+          virtualtext = '■', -- 
           always_update = true,
           hsl_fn = true,
           rgb_fn = true,
@@ -44,5 +45,5 @@ return {
         },
       })
     end,
-  }
+  },
 }
