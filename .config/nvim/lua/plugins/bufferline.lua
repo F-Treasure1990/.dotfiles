@@ -4,7 +4,7 @@ return {
   keys = {
     -- pick a buffer to view from the buffer list
     --{ "<leader>bp", "<cmd>BufferLinePick<CR>", desc = "Buffer Pick" },
-    { '<S-Tab>', '<cmd>BufferLinePick<CR>', desc = 'Buffer Pick' },
+    { '<Tab>', '<cmd>BufferLinePick<CR>', desc = 'Buffer Pick' },
     -- pick a buffer to closes from the buffer list
     { '<leader>bp', '<cmd>BufferLinePickClose<CR>', desc = 'Buffer Pick Close' },
     { '<leader>bh', '<cmd>BufferLineCloseLeft<CR>', desc = 'Buffer Close Left' },

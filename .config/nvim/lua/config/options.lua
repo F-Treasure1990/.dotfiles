@@ -6,6 +6,7 @@ vim.g.editorconfig = true
 
 set.cursorline = true
 
+--set.swapfile = false
 set.conceallevel = 1
 set.number = true
 set.numberwidth = 2
@@ -45,8 +46,11 @@ set.smarttab = true
 set.laststatus = 3
 
 set.showmode = false
-set.foldmethod = 'indent'
-set.foldlevel = 99
+
+set.foldmethod = 'expr'
+--set.foldexpr = "v:lua.require'config.foldexpr'.foldexpr(v:lnum)"
+set.foldlevelstart = 99
+set.foldminlines = 0
 vim.g.vimsyn_embed = 'alpPrj'
 set.listchars = {
   -- Replace tab whitespace with -->

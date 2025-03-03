@@ -18,11 +18,19 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       yaml = { 'yamlfmt', 'prettierd', stop_after_first = true },
+
       javascript = { 'prettierd' },
+      javascriptreact = { 'prettierd' },
       typescript = { 'prettierd' },
       typescriptreact = { 'prettierd' },
-      javascriptreact = { 'prettierd' },
-      markdown = { 'markdownlint' },
+      json = { 'prettierd' },
+      sql = { 'sql-formatter' },
+      markdown = { 'markdownlint', 'prettierd' },
+      html = { 'prettierd' },
+      css = { 'prettierd' },
+      scss = { 'prettierd' },
+      less = { 'prettierd' },
+      astro = { 'prettierd' },
     },
   },
 }

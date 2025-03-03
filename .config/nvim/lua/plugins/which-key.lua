@@ -23,7 +23,6 @@ return {
       { '<leader>q', desc = 'Quickfix' },
       { '<leader>r', desc = 'Refactor' },
       { '<leader>s', desc = 'Spell' },
-      { '<leader>t', desc = 'Todos' },
       { '<leader>v', desc = 'Vim' },
       { '<leader>w', desc = 'Workspace' },
       { '<leader>y', desc = 'Yank Regs' },

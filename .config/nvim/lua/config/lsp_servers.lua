@@ -60,7 +60,7 @@ M.yamlls = {
   filetypes = { 'yaml' },
 }
 
-M.ts_ls = {}
+--M.ts_ls = {}
 
 M.ensure_installed = {
   -------------------
@@ -82,7 +82,7 @@ M.ensure_installed = {
   ----------------------------
   --- Linters / Formatters ---
   ----------------------------
-  'eslint_d',
+  --'eslint_d',
   'prettierd',
   'stylua',
   'markdownlint',

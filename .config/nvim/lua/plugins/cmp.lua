@@ -1,7 +1,8 @@
 return {
   {
     'saghen/blink.cmp',
-    version = '*',
+    --version = '*',
+    tag = 'v0.11.0',
     opts = {
       keymap = {
         ['<C-n>'] = { 'show', 'show_documentation', 'hide_documentation' },

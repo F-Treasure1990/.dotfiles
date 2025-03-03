@@ -81,10 +81,7 @@ PS1='[\u@\h \W]\$ '
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-# Shopify Hydrogen alias to local projects
-alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
-
-# pnpm
+# # pnpm
 export PNPM_HOME="/home/fenton/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;

@@ -1,5 +1,15 @@
 local autocmd = vim.api.nvim_create_autocmd
 
+local function eslint_config_exists()
+  local files = { '.eslintrc.js', '.eslintrc.json', '.eslintrc.yml', '.eslintrc.yaml', '.eslintrc' }
+  for _, file in ipairs(files) do
+    if vim.fn.filereadable(vim.fn.getcwd() .. '/' .. file) == 1 then
+      return true
+    end
+  end
+  return false
+end
+
 autocmd('LspAttach', {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -23,7 +33,7 @@ autocmd('LspAttach', {
 			})
 		end ]]
 
-    if client.supports_method('textDocument/formatting') then
+    if client.supports_method('textDocument/formatting') and eslint_config_exists() then
       vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave', 'TextChanged' }, {
         buffer = args.buf,
         group = vim.api.nvim_create_augroup('format_on_save', { clear = true }),
@@ -112,3 +122,15 @@ autocmd('FileType', {
     vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = event.buf, silent = true })
   end,
 })
+
+vim.api.nvim_create_user_command('Format', function(args)
+  local range = nil
+  if args.count ~= -1 then
+    local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+    range = {
+      start = { args.line1, 0 },
+      ['end'] = { args.line2, end_line:len() },
+    }
+  end
+  require('conform').format({ async = true, lsp_format = 'fallback', range = range })
+end, { range = true })
