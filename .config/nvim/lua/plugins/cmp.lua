@@ -1,8 +1,8 @@
 return {
   {
     'saghen/blink.cmp',
-    --version = '*',
-    tag = 'v0.11.0',
+    version = '*',
+    --    tag = 'v0.11.0',
     opts = {
       keymap = {
         ['<C-n>'] = { 'show', 'show_documentation', 'hide_documentation' },
@@ -99,9 +99,9 @@ return {
           enabled = false,
         },
       },
-      sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
-        cmdline = function()
+      cmdline = {
+        completion = { ghost_text = { enabled = true } },
+        sources = function()
           local type = vim.fn.getcmdtype()
           -- Search forward and backward
           if type == '/' or type == '?' then
@@ -113,6 +113,9 @@ return {
           end
           return {}
         end, -- Disable sources for command-line mode
+      },
+      sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
         providers = {
           snippets = {
             min_keyword_length = 2, -- Number of characters to trigger porvider

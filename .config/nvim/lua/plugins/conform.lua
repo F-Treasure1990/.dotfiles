@@ -31,6 +31,7 @@ return {
       scss = { 'prettierd' },
       less = { 'prettierd' },
       astro = { 'prettierd' },
+      go = { 'goimports', 'gofumpt', 'goimports-reviser', 'golines' },
     },
   },
 }

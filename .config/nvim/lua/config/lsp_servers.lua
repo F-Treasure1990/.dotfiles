@@ -29,6 +29,37 @@ M.lua_ls = {
     },
   },
 }
+M.gopls = {
+  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+  root_dir = require('lspconfig/util').root_pattern('go.work', 'go.mod', '.git'),
+  cmd = { 'gopls' },
+  settings = {
+    gopls = {
+      directoryFilters = { '-.git', '-.vscode', '-.idea', '-.vscode-test', '-node_modules' },
+      semanticTokens = true,
+      completeUnimported = true,
+      usePlaceholders = true,
+      staticcheck = true,
+      gofumpt = true,
+      analyses = {
+        unusedparams = true,
+        unusedvariable = true,
+        unusedwrite = true,
+        useany = true,
+        nilness = true,
+      },
+    },
+    hints = {
+      assignVariableTypes = true,
+      compositeLiteralFields = true,
+      compositeLiteralTypes = true,
+      constantValues = true,
+      functionTypeParameters = true,
+      parameterNames = true,
+      rangeVariableTypes = true,
+    },
+  },
+}
 
 M.jsonls = {
   --https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json
@@ -78,6 +109,15 @@ M.ensure_installed = {
   'marksman',
   'vimls',
   'yamlls',
+
+  ----------
+  --- GO ---
+  ----------
+  'gopls',
+  'gofumpt',
+  'goimports-reviser',
+  'golines',
+  'gomodifytags',
 
   ----------------------------
   --- Linters / Formatters ---

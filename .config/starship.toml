@@ -1,6 +1,6 @@
 add_newline = false
 scan_timeout = 10
-format =' $hostname$directory$git_branch$character'
+format =' $hostname$directory$git_branch$docker_context$character'
 
 [character]
 vimcmd_symbol = '[](bold red)'
@@ -19,7 +19,7 @@ truncate_to_repo=true
 truncation_symbol = ''
 
 [docker_context]
-symbol = " "
+format = '[🐋 $context](blue bold)'
 
 [dotnet]
 format = 'via [$symbol(${major}${minor})](purple bold)'
