@@ -11,6 +11,7 @@ local function eslint_config_exists()
 end
 
 autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('lsp_attach', { clear = true }),
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     local opts = { buffer = args.buf, silent = true, remap = true }
@@ -42,17 +43,16 @@ autocmd('LspAttach', {
         end,
       })
     end
-
     --[[	if client.supports_method('textDocument/completion') then
 			vim.lsp._completion(true, client.id, args.buf, { autotrigger = true })
 		end]]
 
-    vim.keymap.set('n', 'grn', vim.lsp.buf.rename, desc('Rename'))
-    vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, desc('Code Action'))
-    vim.keymap.set('n', 'grr', vim.lsp.buf.references, desc('References'))
-    vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, desc('Go to Implementation'))
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, desc('Definition'))
-    vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, desc('Document Symbols'))
+    --vim.keymap.set('n', 'grn', vim.lsp.buf.rename, desc('Rename'))
+    --vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, desc('Code Action'))
+    --vim.keymap.set('n', 'grr', vim.lsp.buf.references, desc('References'))
+    -- vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, desc('Go to Implementation'))
+    --vim.keymap.set('n', 'gd', vim.lsp.buf.definition, desc('Definition'))
+    --vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, desc('Document Symbols'))
   end,
 })
 

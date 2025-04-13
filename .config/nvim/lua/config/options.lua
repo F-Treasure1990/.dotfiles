@@ -1,71 +1,85 @@
-local set = vim.opt
+local opt = vim.opt
 local _g = vim.opt_global
 
 vim.g.mapleader = [[ ]]
+vim.g.maplocalleader = '\\'
 vim.g.editorconfig = true
 
-set.cursorline = true
+-- snacks animations
+vim.g.snacks_animate = true
 
---set.swapfile = false
-set.conceallevel = 1
-set.number = true
-set.numberwidth = 2
-set.relativenumber = true
-set.termguicolors = true
-set.cmdheight = 1
-set.signcolumn = 'yes:1'
-set.scrolloff = 10
-set.hlsearch = true
-set.ignorecase = true
-set.hidden = true
-set.clipboard = 'unnamedplus'
-set.inccommand = 'split'
-set.incsearch = true
-set.mouse = 'a'
-set.background = 'dark'
+-- Fix markdown indentation settings
+vim.g.markdown_recommended_style = 0
 
-set.pumheight = 8
-set.pumblend = 0
-set.shiftwidth = 2
+vim.g.have_nerd_fonts = true -- if nerd font is installed and selected in the terminal
+--opt.swapfile = false
 
-set.wrap = true
-set.wrapmargin = 8
-set.showbreak = '↪ '
-set.tabstop = 4
-
-set.splitbelow = true
-set.splitkeep = 'screen'
-set.splitright = true
-set.shortmess = { l = true, F = true, I = true, W = true }
-set.undolevels = 10000
-set.undofile = true
-set.confirm = true
-set.writebackup = false
-set.termguicolors = true
-set.smarttab = true
-set.laststatus = 3
-
-set.showmode = false
-
-set.foldmethod = 'expr'
---set.foldexpr = "v:lua.require'config.foldexpr'.foldexpr(v:lnum)"
-set.foldlevelstart = 99
-set.foldminlines = 0
-vim.g.vimsyn_embed = 'alpPrj'
-set.listchars = {
-  -- Replace tab whitespace with -->
-  tab = '-->',
-  -- I don't care about spaces so spaces are just plain old whitespace
-  multispace = ' ',
-  -- nbsp=' ',
-  -- If a line ends with a space, I probably do care about that, show this instead of whitespace
-  trail = '',
-  -- If the line goes off the screen (for some reason), show this as the last character of the line so I know the
-  -- line continues to the right
-  extends = '⟩',
-  -- Literally the same but left
-  precedes = '⟨',
+opt.clipboard = 'unnamedplus' -- Sync with system clipboard
+opt.completeopt = 'menu,menuone,noselect'
+opt.confirm = true -- Confirm to save changes before exiting modified buffers
+opt.cursorline = true -- Enable highlight of cursorline
+opt.expandtab = true -- Use spaces instead of tabs
+opt.fillchars = {
+  foldopen = '',
+  foldclose = '',
+  fold = ' ',
+  foldsep = ' ',
+  diff = '╱',
+  eob = ' ',
 }
+opt.grepprg = 'rg --vimgrep'
+opt.foldlevel = 99
+opt.conceallevel = 2
+opt.number = true
+opt.numberwidth = 2
+opt.relativenumber = true
+opt.termguicolors = true
+opt.cmdheight = 1
+opt.signcolumn = 'yes:1'
+opt.scrolloff = 10
+opt.hlsearch = true
+opt.ignorecase = true
+opt.smartcase = true
+
+opt.hidden = true
+opt.inccommand = 'split'
+opt.incsearch = true
+opt.mouse = 'a'
+opt.background = 'dark'
+
+opt.pumheight = 10
+opt.pumblend = 0
+opt.shiftwidth = 2
+opt.sidescrolloff = 8
+
+opt.wrap = false
+opt.linebreak = true -- Wrap lines at convenient points, dont split words
+opt.wrapmargin = 8
+opt.showbreak = '↪ '
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.smarttab = true
+opt.smartindent = true
+opt.autoindent = true
+
+opt.splitbelow = true
+opt.splitkeep = 'screen'
+opt.splitright = true
+opt.shortmess = { l = true, F = true, I = true, W = true }
+opt.undolevels = 10000
+opt.undofile = true
+opt.writebackup = false
+opt.termguicolors = true
+opt.laststatus = 3
+
+opt.showmode = false
+
+opt.smoothscroll = true
+opt.foldtext = ''
+opt.foldexpr = "v:lua.require'config'.utils.foldexpr()"
+opt.foldmethod = 'expr'
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 vim.filetype.add({
   extension = {
