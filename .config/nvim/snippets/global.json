@@ -1,9 +1,0 @@
-{
-  "export default": {
-    "prefix": "exd",
-    "body": [
-      "export default $1"
-    ],
-    "description": "export default"
-  }
-}

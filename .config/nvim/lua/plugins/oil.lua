@@ -1,5 +1,7 @@
 return {
   'stevearc/oil.nvim',
+  ---@module 'oil'
+  ---@type oil.SetupOpts
   lazy = false,
   keys = {
     { '-', '<Cmd>Oil<CR>', desc = 'Open Oil' },
@@ -25,7 +27,6 @@ return {
       ['<Esc>'] = 'actions.close',
       ['<C-h>'] = 'actions.toggle_hidden',
       ['q'] = 'actions.close',
-      ['<A-h>'] = 'actions.toggle_hidden',
     },
     view_options = {
       show_hidden = true,

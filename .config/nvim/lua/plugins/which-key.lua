@@ -1,6 +1,6 @@
 return {
   'folke/which-key.nvim',
-  event = 'VeryLazy',
+  event = 'VimEnter',
   keys = {
     {
       '<leader>?',
@@ -10,23 +10,24 @@ return {
       desc = 'Buffer Local Keymaps (which-key)',
     },
   },
-  config = function()
+  opts = {
+    delay = 250,
+    icons = {
+      mappings = true,
+    },
+  },
+  config = function(_, opts)
     local wk = require('which-key')
-
+    wk.setup(opts)
     wk.add({
-      { '<leader>b', desc = 'Buffers' },
-      { '<leader>c', desc = 'Code' },
-      { '<leader>f', desc = 'Files' },
-      { '<leader>h', desc = 'Harpoon' },
-      { '<leader>l', desc = 'Lsp' },
-      { '<leader>o', desc = 'Obsidian' },
-      { '<leader>q', desc = 'Quickfix' },
-      { '<leader>r', desc = 'Refactor' },
-      { '<leader>s', desc = 'Spell' },
-      { '<leader>v', desc = 'Vim' },
-      { '<leader>w', desc = 'Workspace' },
-      { '<leader>y', desc = 'Yank Regs' },
-      { '<leader>pv', desc = 'Neovim' },
+      { '<leader>s', desc = 'Surround' },
+      { '<leader>b', desc = 'Buffer' },
+      { '<leader>e', desc = 'Editor' },
+      { '<leader>g', desc = 'Git' },
+      { '<leader>f', desc = 'File' },
+      { '<leader>f', desc = 'File' },
+      { '<leader>gt', desc = 'Typescript' },
+      { '<leader>gt', desc = 'LSP' },
     })
   end,
 }

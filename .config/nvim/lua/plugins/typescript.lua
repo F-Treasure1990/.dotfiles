@@ -1,12 +1,41 @@
 return {
   'pmizio/typescript-tools.nvim',
-  ft = { 'typescript', 'typescriptreact' },
+  ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
   dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-  opts = {},
+  opts = {
+    expose_as_code_action = 'all',
+    complete_function_calls = false,
+    jsx_close_tag = {
+      enable = true,
+      filetypes = { 'javascriptreact', 'typescriptreact' },
+    },
+    tsserver_file_preferences = {
+      includeInlayParameterNameHints = 'all',
+      includeInlayVariableTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = true,
+      includeInlayPropertyDeclarationTypeHints = true,
+      includeCompletionsForModuleExports = true,
+      includeCompletionsWithInsertText = true,
+      importModuleSpecifierPreference = 'non-relative',
+      quotePreference = 'auto',
+    },
+    tsserver_format_options = {
+      insertSpaceAfterCommaDelimiter = true,
+      insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
+      insertSpaceBeforeAndAfterBinaryOperators = true,
+      insertSpaceAfterKeywordsInControlFlowStatements = true,
+      semicolons = 'insert',
+      quotePreference = 'single',
+      indentSize = 2,
+      tabSize = 2,
+      convertTabsToSpaces = true,
+    },
+  },
   keys = {
-    { '<leader>lo', '<cmd>TSToolsOrganizeImports<cr>', desc = 'Sort Imports' },
-
-    { '<leader>li', '<cmd>TSToolsAddMissingImports<cr>', desc = 'Add Missing Imports' },
-    { '<leader>le', '<cmd>TSToolsFixAll<cr>', desc = 'Fix Missing Errors' },
+    { 'gto', '<cmd>TSToolsOrganizeImports<cr>', desc = 'Sort Imports' },
+    { 'gti', '<cmd>TSToolsAddMissingImports<cr>', desc = 'Add Missing Imports' },
+    { 'gta', '<cmd>TSToolsFixAll<cr>', desc = 'Fix Missing Errors' },
+    { 'gts', '<cmd>TSToolsRemoveUnused<cr>', desc = 'Remove Unused Statements' },
+    { 'gtr', '<cmd>TSToolsRenameFile<cr>', desc = 'File Rename Global' },
   },
 }

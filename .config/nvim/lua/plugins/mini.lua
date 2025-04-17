@@ -2,7 +2,7 @@ return {
   {
     'echasnovski/mini.surround',
     keys = function(_, keys)
-      local opts = require('config.utils').opts('mini.surround')
+      local opts = require('core.utils').opts('mini.surround')
       local mappings = {
         { opts.mappings.add, desc = 'Add Surrounding', mode = { 'n', 'v' } },
         { opts.mappings.delete, desc = 'Delete Surrounding' },
@@ -21,12 +21,12 @@ return {
       mappings = {
         highlight_duration = 200,
         add = '<leader>sz', -- Add surrounding in Normal and Visual modes
-        delete = 'sd', -- Delete surrounding
-        find = 'sf', -- Find surrounding (to the right)
-        find_left = 'sF', -- Find surrounding (to the left)
-        highlight = 'sh', -- Highlight surrounding
-        replace = 'sc', -- Replace surrounding
-        update_n_lines = 'sn', -- Update `n_lines`
+        delete = '<leader>sd', -- Delete surrounding
+        find = '<leader>sf', -- Find surrounding (to the right)
+        find_left = '<leader>sF', -- Find surrounding (to the left)
+        highlight = '<leader>sh', -- Highlight surrounding
+        replace = '<leader>sc', -- Replace surrounding
+        update_n_lines = '<leader>sn', -- Update `n_lines`
 
         suffix_last = 'l', -- Suffix to search with "prev" method
         suffix_next = 'n', -- Suffix to search with "next" method
@@ -49,7 +49,6 @@ return {
       },
     },
   },
-
   {
     'echasnovski/mini.statusline',
     version = '*',
@@ -79,6 +78,31 @@ return {
       filetype = {
         gotmpl = { glyph = '', hl = 'MiniIconsGrey' },
         go = { glyph = '', hl = 'MiniIconsBlue' },
+        dotenv = { glyph = '', hl = 'MiniIconsYellow' },
+      },
+    },
+  },
+  {
+    'echasnovski/mini.pairs',
+    version = '*',
+    opts = {
+      modes = { insert = true, command = false, terminal = false },
+      skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+      skip_ts = { 'string' },
+      skip_unbalanced = true,
+      markdown = true,
+      mappings = {
+        ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
+        ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
+        ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
+
+        [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+        [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+        ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+
+        ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
+        ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
+        ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
       },
     },
   },

@@ -1,24 +1,24 @@
 return {
-  "epwalsh/obsidian.nvim",
-  version = "*", -- recommended, use latest release instead of latest commit
-  ft = "markdown",
+  'epwalsh/obsidian.nvim',
+  version = '*', -- recommended, use latest release instead of latest commit
+  ft = 'markdown',
   dependencies = {
-    "nvim-lua/plenary.nvim",
+    'nvim-lua/plenary.nvim',
   },
   opts = {
     workspaces = {
-      { name = "dev_vault", path = "~/.config/dev_vault" },
+      { name = 'dev_vault', path = '~/.config/dev_vault' },
     },
     completion = {
-      nvim_cmp = true,
+      blink = true,
       min_chars = 2,
     },
     disable_frontmatter = false,
-    preferred_link_style = "markdown",
+    preferred_link_style = 'markdown',
     note_frontmatter_func = function(note)
       local out = { --[[ aliases = note.aliases, ]]
-        title = "",
-        description = "",
+        title = '',
+        description = '',
         tags = note.tags,
       }
       if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
@@ -29,23 +29,23 @@ return {
       return out
     end,
     templates = {
-      subdir = ".templates",
-      date_format = "%Y-%m-%d-%a",
+      subdir = '.templates',
+      date_format = '%Y-%m-%d-%a',
     },
     mappings = {
       -- toggle check-boxes
-      ["<leader>oc"] = {
+      ['<leader>oc'] = {
         action = function()
-          return require("obsidian").util.toggle_checkbox()
+          return require('obsidian').util.toggle_checkbox()
         end,
-        opts = { buffer = true, desc = "Toggle checkbox" },
+        opts = { buffer = true, desc = 'Toggle checkbox' },
       },
     },
   },
   keys = {
-    { "<leader>op", "<cmd>ObsidianOpen<cr>", desc = "Open Obsidian" },
+    { '<leader>op', '<cmd>ObsidianOpen<cr>', desc = 'Open Obsidian' },
   },
   config = function(_, opts)
-    require("obsidian").setup(opts)
+    require('obsidian').setup(opts)
   end,
 }
