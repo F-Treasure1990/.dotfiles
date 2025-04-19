@@ -3,12 +3,13 @@ return {
   event = 'VeryLazy',
   keys = {
     { '<leader>bp', '<Cmd>BufferLineTogglePin<CR>', desc = 'Toggle Pin' },
-    { '<leader>bl', '<Cmd>BufferLineCloseRight<CR>', desc = 'Delete Buffers to the Right' },
-    { '<leader>bh', '<Cmd>BufferLineCloseLeft<CR>', desc = 'Delete Buffers to the Left' },
-    { '<S-h>', '<cmd>BufferLineCyclePrev<cr>', desc = 'Prev Buffer' },
-    { '<S-l>', '<cmd>BufferLineCycleNext<cr>', desc = 'Next Buffer' },
-    { '<leader>bo', '<cmd>BufferLineCloseOthers<CR>', desc = 'Buffer Close Others' },
-    { '<leader>bp', '<cmd>:lua Snacks.bufdelete()<cr>', desc = 'Buffer Pop' },
+    { '<leader>bl', '<Cmd>BufferLineCloseRight<CR>', desc = 'Delete to the Right' },
+    { '<leader>bh', '<Cmd>BufferLineCloseLeft<CR>', desc = 'Delete to the Left' },
+    { '<leader>bj', '<Cmd>BufferLinePickClose<CR>', desc = 'Pick to Close' },
+    { '<S-h>', '<cmd>BufferLineCyclePrev<cr>', desc = 'Prev' },
+    { '<S-l>', '<cmd>BufferLineCycleNext<cr>', desc = 'Next' },
+    { '<leader>bo', '<cmd>BufferLineCloseOthers<CR>', desc = 'Close Others' },
+    { '<leader>bp', '<cmd>:lua Snacks.bufdelete()<cr>', desc = 'Close' },
   },
   opts = {
     options = {

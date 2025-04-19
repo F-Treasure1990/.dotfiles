@@ -43,7 +43,7 @@ return {
     },
   },
   keys = {
-    { '<leader>op', '<cmd>ObsidianOpen<cr>', desc = 'Open Obsidian' },
+    { '<leader>o', '<cmd>ObsidianOpen<cr>', desc = 'Open Obsidian' },
   },
   config = function(_, opts)
     require('obsidian').setup(opts)

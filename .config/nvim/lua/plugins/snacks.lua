@@ -134,7 +134,7 @@ return {
       {
         '<leader>,',
         function()
-          require('snacks').picker.buffers()
+          require('snacks').picker.buffers({ layout = 'select' })
         end,
         desc = 'Buffers',
       },
@@ -149,7 +149,7 @@ return {
       {
         '<leader>/',
         function()
-          require('snacks').picker.grep()
+          require('snacks').picker.grep({ layout = 'left' })
         end,
         desc = 'Grep',
       },
@@ -161,7 +161,7 @@ return {
         desc = 'Grep Word',
       },
       {
-        '<leader>ek',
+        '<leader>nk',
         function()
           require('snacks').picker.keymaps({ layout = 'ivy' })
         end,
@@ -170,7 +170,7 @@ return {
       {
         '<leader>pr',
         function()
-          require('snacks').picker.recent()
+          require('snacks').picker.recent({ layout = 'left' })
         end,
         desc = 'Recent',
       },
@@ -187,6 +187,20 @@ return {
           require('snacks').picker.spelling({ layout = 'select' })
         end,
         desc = 'Spelling Suggest',
+      },
+      {
+        '<leader>dg',
+        function()
+          require('snacks').picker.diagnostics()
+        end,
+        desc = 'Global',
+      },
+      {
+        '<leader>db',
+        function()
+          require('snacks').picker.diagnostics_buffer()
+        end,
+        desc = 'Buffer',
       },
     },
   },

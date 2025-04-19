@@ -22,4 +22,19 @@ return {
     event = 'VeryLazy',
     opts = {},
   },
+  -- TODO:
+  ---WARNING:
+  -- FIX:
+  -- NOTE:
+  -- PERF:
+  -- HACK:
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    keys = {
+      { '<leader>dt', '<cmd>TodoQuickFix<cr>', desc = 'Todo' },
+    },
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = true },
+  },
 }

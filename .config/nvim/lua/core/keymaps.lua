@@ -7,6 +7,12 @@ map('n', '<leader>so', '<cmd>noh<CR>', { desc = 'Clear Search' })
 --map('n', '<leader>lf', '<cmd>Format<CR>', { desc = 'Format' })
 
 -- ────────────────────────────────────────────
+-- ▶ Neovim
+-- ────────────────────────────────────────────
+map('n', '<leader>nl', '<cmd>Lazy<CR>', { desc = 'Lazy' })
+map('n', '<leader>nm', '<cmd>Mason<CR>', { desc = 'Mason' })
+
+-- ────────────────────────────────────────────
 -- ▶ MOVEMENT
 -- ────────────────────────────────────────────
 map('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move Hl Line Up' })
@@ -32,9 +38,12 @@ map('n', 'yaf', '<cmd> %y+ <CR>', { desc = 'Yank Entire File' })
 -- ────────────────────────────────────────────
 map('n', '<leader>we', '<C-w>=', { desc = 'Make Splits Equal Size' })
 map('n', '<leader>wp', '<C-W>c', { desc = 'Close Split' })
-map('n', '<leader>w-', '<C-W>s', { desc = 'Split Window Below' })
-map('n', '<leader>w/', '<C-W>v', { desc = 'Split Window Right' })
-
+map('n', '<leader>w-', '<C-W>s', { desc = 'Split Below' })
+map('n', '<leader>w/', '<C-W>v', { desc = 'Split Right' })
+map('n', '<leader>wk', '<cmd>resize +5<cr>', { desc = 'Increase Height' })
+map('n', '<leader>wj', '<cmd>resize -5<cr>', { desc = 'Decrease Height' })
+map('n', '<leader>wh', '<cmd>vertical resize -5<cr>', { desc = 'Decrease Width' })
+map('n', '<leader>wl', '<cmd>vertical resize +5<cr>', { desc = 'Increase Width' })
 -- ────────────────────────────────────────────
 -- ▶ BUFFERS
 -- ────────────────────────────────────────────

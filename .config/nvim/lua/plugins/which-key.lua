@@ -20,14 +20,18 @@ return {
     local wk = require('which-key')
     wk.setup(opts)
     wk.add({
-      { '<leader>s', desc = 'Surround' },
+      { 'gs', desc = 'Surround' },
       { '<leader>b', desc = 'Buffer' },
       { '<leader>e', desc = 'Editor' },
       { '<leader>g', desc = 'Git' },
       { '<leader>f', desc = 'File' },
-      { '<leader>f', desc = 'File' },
-      { '<leader>gt', desc = 'Typescript' },
-      { '<leader>gt', desc = 'LSP' },
+      { 'gt', desc = 'Typescript' },
+      { 'gr', desc = 'LSP' },
+      { '<leader>o', desc = 'Obsidian' },
+      { '<leader>p', desc = 'Picker' },
+      { '<leader>w', desc = 'Window' },
+      { '<leader>n', desc = 'Neovim' },
+      { '<leader>d', desc = 'Diagnostics' },
     })
   end,
 }
