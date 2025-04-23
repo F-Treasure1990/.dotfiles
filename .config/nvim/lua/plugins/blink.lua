@@ -3,7 +3,6 @@ return { -- Autocompletion
   event = 'VimEnter',
   version = '1.*',
   dependencies = {
-    'moyiz/blink-emoji.nvim',
     'folke/lazydev.nvim',
     -- Snippet Engine
     {
@@ -129,23 +128,9 @@ return { -- Autocompletion
       end, -- Disable sources for command-line mode
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer', 'emoji' },
+      default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        emoji = {
-          module = 'blink-emoji',
-          name = 'Emoji',
-          score_offset = 15, -- Tune by preference
-          opts = { insert = true }, -- Insert emoji (default) or complete its name
-          -- should_show_items = function()
-          --   return vim.tbl_contains(
-          --     -- Enable emoji completion only for git commits and markdown.
-          --     -- By default, enabled for all file-types.
-          --     { 'gitcommit', 'markdown', 'lua' },
-          --     vim.o.filetype
-          --   )
-          -- end,
-        },
       },
     },
 
