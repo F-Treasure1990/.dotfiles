@@ -7,6 +7,7 @@ return {
       --    notifier = {},
       --scroll = {},
       picker = {
+        exclude = { 'node_modules', '.git' },
         sources = {
           files = {
             hidden = true,
