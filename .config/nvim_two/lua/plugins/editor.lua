@@ -1,6 +1,4 @@
 return {
-  { 'b0o/schemastore.nvim' },
-  { 'j-hui/fidget.nvim', opts = {} },
   {
     'christoomey/vim-tmux-navigator',
     lazy = true,

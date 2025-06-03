@@ -3,9 +3,23 @@ return {
   -- ▶ General
   -- ────────────────────────────────────────────
   tailwindcss = {},
+  emmet_language_server = {
+    init_options = {
+      includeLanguages = {},
+      excludeLanguages = {},
+      extensionsPath = {},
+      preferences = {},
+      showAbbreviationSuggestions = true,
+      showExpandedAbbreviation = 'always',
+      showSuggestionsAsSnippets = false,
+      syntaxProfiles = {},
+      variables = {},
+    },
+  },
   dockerls = {},
   docker_compose_language_service = {},
   astro = {},
+  prismals = {},
 
   -- ────────────────────────────────────────────
   -- ▶ LUA
@@ -14,16 +28,27 @@ return {
     -- cmd = { ... },
     -- filetypes = { ... },
     -- capabilities = {},
+    filetypes = { 'lua', 'html' },
     settings = {
       Lua = {
         completion = {
           callSnippet = 'Replace',
         },
+        diagnostics = { disable = { 'missing-fields' } },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.stdpath('config') .. '/lua'] = true,
+        },
       },
     },
   },
-  ['marksman'] = {},
-  ['eslint-lsp'] = {
+
+  marksman = {
+    filetypes = { 'markdown', 'markdown.mdx', 'html' },
+  },
+  eslint = {
     settings = {
       workingDirectories = { mode = 'auto' },
     },
