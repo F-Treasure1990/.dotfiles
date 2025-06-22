@@ -33,6 +33,7 @@ return {
       { '<leader>n', desc = 'Neovim' },
       { '<leader>d', desc = 'Diagnostics' },
       { '<leader>s', desc = 'Search | Spell' },
+      { '<leader>k', desc = 'Kulala' },
     })
   end,
 }

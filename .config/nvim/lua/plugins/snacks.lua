@@ -157,7 +157,7 @@ return {
         desc = 'Grep',
       },
       {
-        '<leader>pw',
+        '<leader>s/',
         function()
           require('snacks').picker.grep_word({ layout = 'ivy' })
         end,

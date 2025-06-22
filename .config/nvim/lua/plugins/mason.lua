@@ -35,6 +35,7 @@ return {
         'hadolint', -- docker
         'markdownlint-cli2',
         'markdown-toc',
+        'biome',
       },
     }
   end,

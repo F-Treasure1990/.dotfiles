@@ -52,6 +52,7 @@ return {
     'rescript',
     'typescript',
     'typescriptreact',
+    'tsx',
     -- mixed
     'vue',
     'svelte',

@@ -60,6 +60,8 @@ alias desk='cd ~/Desktop'
 alias dev='cd ~/Developer'
 alias fonts='cd ~/.local/share/fonts'
 
+# Code
+alias shad='pnpm dlx shadcn@latest add'
 
 # Git
 alias lg='lazygit'

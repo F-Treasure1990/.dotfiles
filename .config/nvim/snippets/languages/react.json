@@ -23,7 +23,7 @@
   "React Page Component": {
     "prefix": "rct",
     "body": [
-      "type Props = {",
+      "interface Props {",
 
       "};",
       "",

@@ -131,7 +131,7 @@ return {
       })
     end
 
-    print(vim.inspect(client.server_capabilities.codeActionProvider))
+    --print(vim.inspect(client.server_capabilities.codeActionProvider))
 
     local function ts_source_actions()
       if client.server_capabilities.codeActionProvider then
