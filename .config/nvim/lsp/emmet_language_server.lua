@@ -16,6 +16,7 @@ return {
     'templ',
     'typescriptreact',
     'vue',
+    'handlebars',
   },
   root_markers = { '.git' },
   init_options = {
