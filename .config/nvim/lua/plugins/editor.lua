@@ -119,4 +119,15 @@ return {
       end,
     },
   },
+  {
+    'mbbill/undotree',
+    keys = {
+
+      {
+        '<leader>u',
+        '<Cmd>UndotreeToggle<Bar>UndotreeFocus<CR>',
+        desc = 'Undotree',
+      },
+    },
+  },
 }

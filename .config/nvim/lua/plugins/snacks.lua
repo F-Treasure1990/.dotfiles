@@ -177,13 +177,13 @@ return {
         end,
         desc = 'Recent',
       },
-      {
-        '<leader>u',
-        function()
-          require('snacks').picker.undo()
-        end,
-        desc = 'Undo History',
-      },
+      -- {
+      --   '<leader>u',
+      --   function()
+      --     require('snacks').picker.undo()
+      --   end,
+      --   desc = 'Undo History',
+      -- },
       {
         '<leader>ss',
         function()
