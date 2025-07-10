@@ -20,6 +20,7 @@ return {
         'markdown',
         'css',
         'astro',
+        'c_sharp',
       },
       auto_install = true,
       highlight = {

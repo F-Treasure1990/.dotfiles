@@ -6,6 +6,7 @@ return {
   filetypes = {
     'html',
     'templ',
+    'handlebars',
   },
   root_markers = {
     'package.json',
