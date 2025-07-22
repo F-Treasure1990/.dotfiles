@@ -135,3 +135,9 @@ vim.opt.listchars = {
   nbsp = '␣', -- Non-breaking space
 }
 opt.listchars.eol = '↴' -- Uncomment to show end-of-line characters (optional)
+
+vim.filetype.add({
+  extension = {
+    edge = 'html',
+  },
+})

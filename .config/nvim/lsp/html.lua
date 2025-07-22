@@ -7,6 +7,7 @@ return {
     'html',
     'templ',
     'handlebars',
+    'edge',
   },
   root_markers = {
     'package.json',

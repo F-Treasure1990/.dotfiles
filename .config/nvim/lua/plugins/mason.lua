@@ -41,6 +41,13 @@ return {
         'markdown-toc',
         'biome',
         'djlint', -- handlebars
+        'delve',
+        'goimports',
+        'gofumpt',
+        'gomodifytags',
+        'impl',
+        'goimports-reviser',
+        'golines',
       },
     }
   end,
