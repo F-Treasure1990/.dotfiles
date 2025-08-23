@@ -61,7 +61,7 @@ return {
       css = { 'prettierd' },
       scss = { 'prettierd' },
       less = { 'prettierd' },
-      astro = { 'prettierd', 'biome', stop_after_first = true },
+      astro = { 'prettier' },
       go = { 'gofmt', 'goimports', 'gofumpt', 'goimports-reviser', 'golines' },
       handlebars = { 'djlint' },
       -- Conform can also run multiple formatters sequentially

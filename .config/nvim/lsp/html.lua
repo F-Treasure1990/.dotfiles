@@ -8,6 +8,8 @@ return {
     'templ',
     'handlebars',
     'edge',
+    'tmpl',
+    'template',
   },
   root_markers = {
     'package.json',
